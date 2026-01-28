@@ -1,0 +1,103 @@
+html {
+    /* Default is usually 16px. 
+       90% of 16px is 14.4px. */
+    font-size: 12px; 
+}
+
+.card-container {
+    display: flex; /* Use flexbox to arrange the two columns */
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* White text color */
+    border-radius: 12px;
+    padding: 40px; /* Adjust padding as needed */
+    gap: 40px; /* Space between the text and image */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-content {
+    flex: 1; /* Allows this container to grow and take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-content {
+    flex: 1; /* Allows this container to grow */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-wsp {
+    background-color: #333;
+    color: #eee;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.stats-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.stat .number {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat .label {
+    font-size: 0.9em;
+    color: #cccccc;
+    margin: 0;
+}
+
+.learn-more-button {
+    background-color: #007bff; /* Button color */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-start; /* Aligns button to the left */
+    transition: background-color 0.3s;
+}
+
+.learn-more-button:hover {
+    background-color: #0056b3;
+}
+
+.image-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+body {
+    /* Scale down to 90% */
+    transform: scale(0.8);
+    /* Anchor the scaling to the top center */
+    transform-origin: top center; 
+    /* Force the body to be wider so it still fills the screen after shrinking. 
+       Calculation: 100% / 0.9 = 111.11% */
+    width: 111.11%; 
+    /* Prevent horizontal scrollbars caused by the increased width */
+    overflow-x: hidden; 
+}

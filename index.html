@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=0.9" name="viewport" />
+        <title>World Student Pitch</title>
+        <link rel="icon" type="image/png"
+            href="./assets/images/highlights/WSP_Icon.png">
+        <script
+            src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+            rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet" />
+        <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#0D0D0D",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1A1A1A",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        lg: "16px",
+                        xl: "24px"
+                    },
+                    boxShadow: {
+                        'custom-light': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
+                        'custom-dark': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                      }
+                },
+            },
+        };
+    </script>
+        <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, #1A2E28 0%, #0D0D0D 100%);
+        }
+        .carousel-container {
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+    </head>
+
+    <!-- UPCOMIMG EVENT CARD COMPONENT TEMPLATE -->
+    <template id="eventCardTemplate">
+        <div class="event-slide min-w-full 
+                    p-4 sm:p-6 md:p-8 
+                    bg-card-light dark:bg-card-dark 
+                    rounded-xl shadow-custom-light dark:shadow-custom-dark
+                    flex flex-col md:flex-row 
+                    gap-6 sm:gap-8 md:gap-10 items-start">
+
+            <!-- Picture -->
+            <img
+                class="event-image w-full md:w-[45%] h-auto rounded-xl object-cover" />
+
+            <!-- Content -->
+            <div class="flex-1 mt-5">
+
+                <p class="event-date text-primary font-semibold text-lg"></p>
+                <h4
+                    class="event-title text-3xl font-bold my-3 text-text-light dark:text-text-dark"></h4>
+                <p
+                    class="event-description text-subtext-light dark:text-subtext-dark mb-6"></p>
+
+                <!-- Prize -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-5">
+                    <div
+                        class="flex flex-col sm:flex-row prize-container"></div>
+
+                    <!-- CTA Button -->
+                    <!-- <a class="register-link flex-1 sm:flex-none relative z-[2]"
+                        target="_blank" rel="noopener noreferrer">
+                        <button
+                            class="group relative w-full sm:w-auto flex items-center justify-center
+                        bg-primary text-white font-bold py-4 px-11 rounded-xl
+                        shadow-md transition-all duration-300
+                        hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl hover:brightness-110
+                        active:scale-80">
+                            <span>Registration will open soon!</span>
+                            <span
+                                class="material-icons ml-2 transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </a>  -->
+
+                    <a
+                        class="register-link flex-1 sm:flex-none relative z-[2] cursor-not-allowed">
+
+                        <!-- <button
+                            disabled
+                            class="group relative w-full sm:w-auto flex items-center justify-center
+                            bg-primary text-white font-bold py-4 px-11 rounded-xl
+                            shadow-none transition-all duration-300
+                            opacity-50 cursor-not-allowed">
+
+                            <span>Registration will open soon!</span>
+
+                        </button> -->
+                    </a>
+                </div>
+
+                <!-- Judges -->
+                <div class="mt-10">
+                    <h5
+                        class="font-bold text-xl mb-5 text-text-light dark:text-text-dark">Judges</h5>
+                    <div
+                        class="judges-grid grid grid-cols-3 sm:grid-cols-4 gap-2"></div>
+                </div>
+
+                <!-- Sponsors -->
+                <div class="mt-10 mb-5">
+                    <h5
+                        class="font-bold text-xl mb-5 text-text-light dark:text-text-dark">Sponsors</h5>
+                    <div
+                        class="sponsors-list flex flex-wrap gap-6 items-center"></div>
+                </div>
+
+            </div>
+        </div>
+    </template>
+
+    <body
+        class="zoom-[0.8] bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
+
+        <!-- Header -->
+        <header
+            class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div
+                class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img
+                        alt="globe icon"
+                        class="inline-block align-baseline"
+                        style="height: 3em; width: 5em;"
+                        src="./assets/WSP.svg" />
+                </div>
+                <nav
+                    class="hidden md:flex items-center space-x-8 justify-start">
+                    <a class="text-gray-300 hover:text-white transition-colors"
+                        href="#about">About WSP</a>
+                    <a class="text-gray-300 hover:text-white transition-colors"
+                        href="#events">Events</a>
+                    <a class="text-gray-300 hover:text-white transition-colors"
+                        href="#howto">How to Join</a>
+                    <a class="text-gray-300 hover:text-white transition-colors"
+                        href="#contact">Contact Us</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="bg-white/20 text-white px-6 py-2 rounded-full hover:bg-white/30 transition-colors text-sm">
+                        Opening Soon!
+                    </button>
+                    <div class="text-right leading-tight">
+                        <!-- By YUME PRO -->
+                        <div class="flex items-center justify-end space-x-4">
+                            <span
+                                class="text-gray-300 text-xs md:text-sm hover:text-white transition-colors">Supported
+                                by
+                            </span>
+                            <img
+                                alt="YUME PRO logo"
+                                style="height: 3em; width: 3.7em;"
+                                src="./assets/YUME_PRO.svg" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Top Banner -->
+        <section
+            class="hero-gradient pt-32 pb-20 text-center relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <h1
+                    class="text-5xl md:text-7xl font-black text-white tracking-tighter">
+                    <!-- Top Logo -->
+                    <img
+                        src="./assets/WSP_Only.svg"
+                        alt="WSP Logo"
+                        class="mx-auto mb-6"
+                        style="height: 0.85em; width: auto;" />
+
+                    <!-- Title -->
+                    <div style="text-align: center">
+                        <span
+                            style="color: white; font-size: 80px; font-weight: 900; line-height: 82.56px; word-wrap: break-word; text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)">
+                            W<span class="inline-block relative -top-1">
+                                <img
+                                    alt="globe icon"
+                                    class="inline-block align-baseline"
+                                    style="height: 0.75em; width: 0.8em;"
+                                    src="./assets/Globe.svg" />RLD
+                            </span>
+                            <span
+                                style="color: white; font-size: 80px; font-weight: 900; line-height: 82.56px; word-wrap: break-word; text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)">
+                                STUDENT PITCH
+                            </span>
+                        </span>
+                    </div>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-300">Japan's
+                    biggest
+                    and most prestigious student entrepreneurship event.</p>
+                <div class="mt-6 flex justify-center items-center">
+                    <div
+                        class="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent w-full max-w-lg"></div>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-black/20 z-0"></div>
+            <div
+                class="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-white/5 rounded-full opacity-10"></div>
+
+            <!-- Autoplay YouTube Video Block -->
+            <div class="mt-12 px-6">
+                <div
+                    class="w-full max-w-8xl mx-auto rounded-3xl overflow-hidden shadow-xl border border-white/10 relative">
+                    <div
+                        class="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl">
+                        <iframe
+                            class="absolute top-1/2 left-1/2 w-[177.77%] h-[177.77%] -translate-x-1/2 -translate-y-1/2"
+                            src="https://www.youtube.com/embed/Z_2KYc_YYP0?autoplay=1&mute=1&loop=1&playlist=Z_2KYc_YYP0&controls=0&modestbranding=1&rel=0"
+                            <!--
+                            src="https://www.youtube.com/embed/SNIn8CVoA6g?autoplay=1&mute=1&loop=1&playlist=SNIn8CVoA6g&controls=0&modestbranding=1&rel=0"
+                            -->
+                            title="WSP Promo"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Body -->
+        <main
+            class="container mx-auto px-6 py-16 sm:py-24 space-y-24 sm:space-y-32">
+            <section class="scroll-mt-24" id="about">
+                <div class="grid md:grid-cols-2 gap-12 items-top">
+                    <div>
+                        <span
+                            class="inline-block bg-gray-700 text-white text-s font-semibold px-3 py-1 rounded mb-4">
+                            About WSP
+                        </span>
+                        <h2
+                            class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">Empowering
+                            the Next Generation of Entrepreneurs</h2>
+                        <p
+                            class="mt-4 text-lg text-subtext-light dark:text-subtext-dark">World
+                            Student Pitch (WSP) is the premier platform for
+                            the
+                            brightest young minds to showcase their
+                            innovative
+                            business ideas. We connect student entrepreneurs
+                            with mentors, investors, and a global community
+                            to
+                            help turn their visions into reality. </p>
+                        <p
+                            class="mt-4 text-subtext-light dark:text-subtext-dark">Our
+                            mission is to foster the next generation of
+                            leaders
+                            and innovators by providing them with the
+                            resources
+                            and network necessary for success. Join us in
+                            building the future, one pitch at a time.</p>
+                        <!-- Stats -->
+                        <div class="grid grid-cols-3 mt-8">
+                            <div class="text-start">
+                                <div
+                                    class="text-3xl font-bold text-white mb-2">500+</div>
+                                <div
+                                    class="text-gray-400">Global
+                                    Participants</div>
+                            </div>
+                            <div class="text-start">
+                                <div
+                                    class="text-3xl font-bold text-white mb-2">50+</div>
+                                <div
+                                    class="text-gray-400">Universities</div>
+                            </div>
+                            <div class="text-start">
+                                <div
+                                    class="text-3xl font-bold text-white mb-2">$20K+</div>
+                                <div class="text-gray-400">Total
+                                    Prizes</div>
+                            </div>
+                        </div>
+                        <a href="https://yume.dt-solution.com/" target="_blank"
+                            rel="noopener noreferrer">
+                            <button
+                                class="mt-8 bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity flex items-center space-x-2">
+                                <span>Learn More</span>
+                                <span
+                                    class="material-icons">arrow_forward</span>
+                            </button>
+                        </a>
+                    </div>
+
+                    <!-- Right Content: Image Gallery -->
+                    <head>
+                        <link rel="preload" as="image"
+                            href="./assets/images/highlights/H11.png">
+                    </head>
+
+                    <body>
+                        <div class="relative group">
+                            <div class="overflow-hidden rounded-lg shadow-lg">
+                                <img id="gallery-image"
+                                    src="./assets/images/highlights/H11.png"
+                                    alt="Gallery Image"
+                                    class="w-full object-cover transition duration-500" />
+                            </div>
+
+                            <div
+                                class="absolute inset-0 flex items-center justify-between px-4">
+                                <button onclick="prevImage()"
+                                    class="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 cursor-pointer">
+                                    ‹
+                                </button>
+                                <button onclick="nextImage()"
+                                    class="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 cursor-pointer">
+                                    ›
+                                </button>
+                            </div>
+                        </div>
+                    </body>
+                </div>
+            </section>
+
+            <!-- History  -->
+            <section id="history" x-data="historyCarousel()">
+                <div class="text-center mb-10">
+                    <h2
+                        class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">
+                        History of WSP
+                    </h2>
+                    <p
+                        class="mt-3 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
+                        From a small local contest to a global phenomenon, trace
+                        the journey of WSP.
+                    </p>
+                </div>
+
+                <div class="carousel-container relative overflow-hidden">
+
+                    <!-- SLIDES TRACK -->
+                    <div
+                        class="carousel-track relative flex transition-transform duration-700 ease-in-out"
+                        :style="{ transform:`translateX(-${activeSlide * 100}%)` }">
+
+                        <template x-for="(slide, index) in slides" :key="index">
+                            <div
+                                class="carousel-slide w-full flex-shrink-0 px-2 md:px-4">
+                                <div
+                                    class="bg-card-light dark:bg-card-dark p-6 md:p-12 rounded-xl shadow-custom-light dark:shadow-custom-dark h-full">
+
+                                    <div
+                                        class="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">
+
+                                        <div
+                                            class="w-full lg:w-1/3 space-y-3 md:space-y-4 text-center lg:text-left">
+
+                                            <p
+                                                class="text-5xl sm:text-6xl md:text-8xl font-black text-primary leading-none"
+                                                x-text="slide.year"></p>
+
+                                            <h3
+                                                class="text-xl md:text-2xl font-bold text-text-light dark:text-text-dark"
+                                                x-text="slide.title"></h3>
+
+                                            <div class="space-y-3">
+                                                <template
+                                                    x-for="paragraph in slide.description.split('\n\n')">
+                                                    <p
+                                                        class="text-sm md:text-base text-subtext-light dark:text-subtext-dark leading-relaxed text-justify lg:text-left"
+                                                        x-text="paragraph"></p>
+                                                </template>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="w-full lg:w-2/3 mt-4 lg:mt-0">
+                                            <div
+                                                class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <template
+                                                    x-for="img in slide.images"
+                                                    :key="img">
+                                                    <img :src="img"
+                                                        @click="openLightbox(img)"
+                                                        class="cursor-pointer rounded-lg object-cover w-full 
+                                            h-48 md:h-72 lg:h-80 
+                                            transform transition duration-300 hover:scale-105 hover:shadow-lg"
+                                                        alt="WSP History Image" />
+                                                </template>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- PREV BUTTON -->
+                    <button @click="prev()"
+                        class="absolute top-1/2 -translate-y-1/2 left-0 md: bg-card-light dark:bg-card-dark 
+                            rounded-full p-2 shadow-custom-light dark:shadow-custom-dark hover:bg-gray-100 
+                            dark:hover:bg-gray-800 transition">
+                        <span
+                            class="material-icons text-text-light dark:text-text-dark">chevron_left</span>
+                    </button>
+
+                    <!-- NEXT BUTTON -->
+                    <button @click="next()"
+                        class="absolute top-1/2 -translate-y-1/2 right-0 md: bg-card-light dark:bg-card-dark 
+                            rounded-full p-2 shadow-custom-light dark:shadow-custom-dark hover:bg-gray-100 
+                            dark:hover:bg-gray-800 transition">
+                        <span
+                            class="material-icons text-text-light dark:text-text-dark">chevron_right</span>
+                    </button>
+
+                    <!-- PAGINATION DOTS -->
+                    <div class="flex justify-center mt-6 space-x-2">
+                        <template x-for="(slide, index) in slides" :key="index">
+                            <button
+                                @click="activeSlide = index"
+                                class="w-3 h-3 rounded-full transition-colors"
+                                :class="{
+                        'bg-primary': activeSlide === index,
+                        'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500': activeSlide !== index
+                    }">
+                            </button>
+                        </template>
+                    </div>
+
+                </div>
+
+                <!-- LIGHTBOX OVERLAY -->
+                <div x-show="lightboxOpen"
+                    x-transition.opacity
+                    class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50"
+                    @click="lightboxOpen = false">
+                    <img :src="lightboxImage"
+                        class="max-w-[90%] max-h-[90%] rounded-lg shadow-xl" />
+                </div>
+            </section>
+
+            <!-- Why participate?  -->
+            <section id="why" class="py-20">
+                <div class="text-center mb-12">
+                    <h2
+                        class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">
+                        Why Join the WSP Experience?
+                    </h2>
+                    <p
+                        class="mt-4 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
+                        Accelerate your growth, expand your network, and gain
+                        access to exclusive opportunities designed to help you
+                        succeed.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-10">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-custom-light dark:shadow-custom-dark
+                    hover:shadow-lg dark:hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+
+                        <!-- Icon -->
+                        <div
+                            class="bg-primary/10 text-primary h-14 w-14 rounded-xl flex items-center justify-center">
+                            <span class="material-icons text-3xl">groups</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h3
+                            class="mt-6 text-2xl font-semibold text-text-light dark:text-text-dark">
+                            Global Community
+                        </h3>
+
+                        <!-- Description -->
+                        <p
+                            class="mt-3 text-subtext-light dark:text-subtext-dark leading-relaxed">
+                            Build meaningful relationships with students,
+                            mentors, and investors across the globe—unlocking
+                            insights, collaborations, and lifelong connections.
+                        </p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="mt-6 w-full h-40 rounded-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                            <img
+                                src="./assets/images/2023/2023-3.png"
+                                class="w-full h-full rounded-xl object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-custom-light dark:shadow-custom-dark
+                    hover:shadow-lg dark:hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+
+                        <div
+                            class="bg-primary/10 text-primary h-14 w-14 rounded-xl flex items-center justify-center">
+                            <span class="material-icons text-3xl">school</span>
+                        </div>
+
+                        <h3
+                            class="mt-6 text-2xl font-semibold text-text-light dark:text-text-dark">
+                            Expert Mentorship
+                        </h3>
+
+                        <p
+                            class="mt-3 text-subtext-light dark:text-subtext-dark leading-relaxed">
+                            Receive personalized guidance from seasoned
+                            entrepreneurs and industry leaders who are committed
+                            to helping you refine and elevate your ideas.
+                        </p>
+
+                        <div
+                            class="mt-6 w-full h-40 rounded-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                            <img
+                                src="./assets/images/2023/2023-1.png"
+                                class="w-full h-full rounded-xl object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-custom-light dark:shadow-custom-dark
+                    hover:shadow-lg dark:hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+
+                        <div
+                            class="bg-primary/10 text-primary h-14 w-14 rounded-xl flex items-center justify-center">
+                            <span class="material-icons text-3xl">paid</span>
+                        </div>
+
+                        <h3
+                            class="mt-6 text-2xl font-semibold text-text-light dark:text-text-dark">
+                            Funding Opportunities
+                        </h3>
+
+                        <p
+                            class="mt-3 text-subtext-light dark:text-subtext-dark leading-relaxed">
+                            Pitch your startup to investors and venture
+                            capitalists for the chance to secure real funding
+                            and turn your vision into reality.
+                        </p>
+
+                        <div
+                            class="mt-6 w-full h-40 rounded-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                            <img
+                                src="./assets/images/2023/2023-2.png"
+                                class="w-full h-full rounded-xl object-cover" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- EVENTS SECTION -->
+            <section class="scroll-mt-24" id="events">
+                <div class="text-center mb-12">
+                    <h2
+                        class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">Events</h2>
+                    <p
+                        class="mt-3 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
+                        Browse our upcoming pitching competitions and explore
+                        highlights from past events.
+                    </p>
+                </div>
+
+                <!-- ===================== UPCOMING EVENTS (CAROUSEL) ===================== -->
+                <div>
+                    <h3
+                        class="text-2xl font-semibold mb-6 text-text-light dark:text-text-dark">Upcoming
+                        Events</h3>
+
+                    <div class="relative overflow-hidden">
+
+                        <!-- Carousel Track -->
+                        <div id="upcomingCarousel"
+                            class="flex transition-transform duration-500 ease-in-out"></div>
+
+                        <!-- Controls -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-between px-4">
+                            <button id="prevEvent"
+                                class="bg-black/50 text-white p-2 rounded-full hover:bg-black/70">‹</button>
+
+                            <button id="nextEvent"
+                                class="bg-black/50 text-white p-2 rounded-full hover:bg-black/70">›</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div
+                    class="mt-10 flex flex-col h-full p-8 bg-card-light dark:bg-card-dark rounded-xl shadow-custom-light dark:shadow-custom-dark transition-transform hover:scale-[1.02]">
+
+                    <img
+                        src="./assets/images/events/pastEvents/ItalyWSP.jpg"
+                        alt="WSP Italy"
+                        class="w-full h-56 object-cover rounded-lg mb-5">
+
+                    <p
+                        class="text-subtext-light dark:text-subtext-dark text-lg">
+                        March 8, 2026
+                    </p>
+
+                    <h4
+                        class="text-2xl font-bold text-text-light dark:text-text-dark mt-1 mb-2">
+                        WSP Italy
+                    </h4>
+
+                    <p
+                        class="text-subtext-light dark:text-subtext-dark text-lg mb-6 flex-grow">
+                        World’s Largest Student Startup Competition is now in Italy!
+                    </p>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScGMqgmbL7QqTlr5IjJbNX_Y22O94dsBTmqINmTeiRdz5PPOA/viewform?usp=dialog"
+                        class="text-blue-500 hover:text-blue-600 font-semibold inline-flex items-center mt-auto group transition-colors">
+                        Register here now!
+                        <span
+                            class="ml-2 transform group-hover:translate-x-1 transition-transform">-></span>
+                    </a>
+                </div>
+
+                <!-- ===================== PAST EVENTS GALLERY ===================== -->
+                <section class="mt-10 mb-10">
+                    <h3
+                        class="text-2xl font-semibold mb-6 text-text-light dark:text-text-dark">Past
+                        Events</h3>
+
+                    <div id="past-events-container"
+                        class="grid md:grid-cols-2 gap-10 mb-16">
+                    </div>
+                </section>
+
+                <!-- ===================== HOW TO PARTICIPATE ===================== -->
+                <section class="scroll-mt-20" id="howto">
+                    <div class="text-center mb-10"> <h2
+                            class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">How
+                            to Participate</h2>
+                        <p
+                            class="mt-3 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
+                            Follow these 5 simple steps to begin your journey in
+                            the
+                            competition.
+                        </p>
+                    </div>
+
+                    <div
+                        class="relative mb-10 grid grid-cols-1 lg:grid-cols-5 gap-y-16 lg:gap-y-0 lg:gap-x-6">
+
+                        <div
+                            class="relative bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-custom-light dark:shadow-custom-dark flex flex-col items-center text-center transition-transform duration-300 lg:hover:-translate-y-2 h-full">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl">
+                                1</div>
+                            <h4
+                                class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">STEP
+                                1</h4>
+                            <p
+                                class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Click
+                                "Enter" on the official website.
+                            </p>
+
+                            <div
+                                class="lg:hidden absolute left-1/2 -bottom-10 -translate-x-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div
+                                class="hidden lg:block absolute top-1/2 -right-5 -translate-y-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-custom-light dark:shadow-custom-dark flex flex-col items-center text-center transition-transform duration-300 lg:hover:-translate-y-2 h-full">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl">
+                                2</div>
+                            <h4
+                                class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">STEP
+                                2</h4>
+                            <p
+                                class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Fill
+                                out the application form and
+                                submit it (deadline on qualifying page).</p>
+
+                            <div
+                                class="lg:hidden absolute left-1/2 -bottom-10 -translate-x-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div
+                                class="hidden lg:block absolute top-1/2 -right-5 -translate-y-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-custom-light dark:shadow-custom-dark flex flex-col items-center text-center transition-transform duration-300 lg:hover:-translate-y-2 h-full">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl">
+                                3</div>
+                            <h4
+                                class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">STEP
+                                3</h4>
+                            <p
+                                class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Those
+                                who pass preliminary screening
+                                will be informed by email.</p>
+
+                            <div
+                                class="lg:hidden absolute left-1/2 -bottom-10 -translate-x-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div
+                                class="hidden lg:block absolute top-1/2 -right-5 -translate-y-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-custom-light dark:shadow-custom-dark flex flex-col items-center text-center transition-transform duration-300 lg:hover:-translate-y-2 h-full">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl">
+                                4</div>
+                            <h4
+                                class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">STEP
+                                4</h4>
+                            <p
+                                class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Participation
+                                in regional qualifiers
+                                (face-to-face screening).</p>
+
+                            <div
+                                class="lg:hidden absolute left-1/2 -bottom-10 -translate-x-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div
+                                class="hidden lg:block absolute top-1/2 -right-5 -translate-y-1/2 text-primary opacity-60">
+                                <svg class="w-8 h-8" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-custom-light dark:shadow-custom-dark flex flex-col items-center text-center transition-transform duration-300 lg:hover:-translate-y-2 h-full">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl">
+                                5</div>
+                            <h4
+                                class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">STEP
+                                5</h4>
+                            <p
+                                class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Receive
+                                information on participation
+                                in the national tournament.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- PARTICIPANT CTA Section -->
+                <section
+                    class="relative text-white rounded-xl p-12 text-center overflow-hidden my-12">
+
+                    <img
+                        src="./assets/images/highlights/BG.png"
+                        alt="Student pitching idea"
+                        class="absolute inset-0 w-full h-full object-cover">
+
+                    <div
+                        class="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
+
+                    <div class="relative z-10 flex flex-col items-center">
+                        <h2
+                            class="text-3xl sm:text-4xl font-bold tracking-tight">
+                            Ready to Pitch Your Idea?
+                        </h2>
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-100">
+                            Applications for the next WSP cycle are now open.
+                            Don't miss your chance to be part of Japan's biggest
+                            student entrepreneurship event.
+                        </p>
+                        <button
+                            class="mt-8 bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-transform hover:scale-105 duration-300">
+                            Registration Opens Soon!
+                        </button>
+                    </div>
+
+                </section>
+
+                <!-- SPONSORS SECTION -->
+                <section class="py-10 sm:py-20">
+
+                    <div class="text-center mb-16 mt-20">
+                        <h2
+                            class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">
+                            Our Valued Sponsors
+                        </h2>
+                        <p
+                            class="mt-3 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
+                            We are proud to partner with these amazing
+                            organizations
+                            that make our event possible.
+                        </p>
+                    </div>
+
+                    <!-- Crown Sponsor -->
+                    <div class="mb-16">
+                        <h3
+                            class="text-center text-2xl sm:text-3xl font-semibold text-primary dark:text-primary mb-8">
+                            Major Sponsor
+                        </h3>
+
+                        <div class="flex justify-center bg-white">
+                            <div
+                                class="bg-white p-2 sm:p-8 w-full sm:max-w-4xl">
+                                <img alt="Credo Holdings logo"
+                                    class="w-full"
+                                    src="./assets/images/sponsors/CREDO.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supporters -->
+                    <div class="mb-16">
+                        <h3
+                            class="text-center text-2xl font-semibold text-subtext-light dark:text-subtext-dark mb-8">
+                            Our Supporters
+                        </h3>
+
+                        <div
+                            class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-full mx-auto">
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="Amaterasu logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/AMATERASU.png" />
+                            </div>
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="An Spa logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/ANSPA.jpeg" />
+                            </div>
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="Art Aquarium logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/ARTAQ.png" />
+                            </div>
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="Art Aquarium logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/BILLBOARDLIVE.jpeg" />
+                            </div>
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="Sakura logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/SAKURA.png" />
+                            </div>
+
+                            <div
+                                class="bg-white h-32 w-full flex items-center justify-center p-4">
+                                <img alt="Art Aquarium logo"
+                                    class="max-h-full max-w-full object-contain"
+                                    src="./assets/images/sponsors/SAMU.jpeg" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Community Partners -->
+                    <!-- <div>
+                        <h3
+                            class="text-center text-2xl font-semibold text-subtext-light dark:text-subtext-dark mb-8">
+                            Community Partners
+                        </h3>
+
+                    </div> -->
+
+                </section>
+
+                <!-- SPONSOR CTA Section -->
+                <section
+                    class="relative rounded-xl p-12 text-center mb-24 overflow-hidden text-white">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+                        alt="Background"
+                        class="absolute inset-0 w-full h-full object-cover">
+
+                    <div class="absolute inset-0 bg-black/60"></div>
+
+                    <div class="relative z-10 flex flex-col items-center">
+                        <h2
+                            class="text-3xl sm:text-4xl font-bold tracking-tight">
+                            Shape the Future of Entrepreneurship
+                        </h2>
+
+                        <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-100">
+                            Join us in empowering the next generation of
+                            innovators. Your support will fuel the ambition of
+                            many passionate student entrepreneurs. Let's make
+                            history together.
+                        </p>
+
+                        <button
+                            class="mt-8 bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-transform hover:scale-105 duration-300">
+                            Partner with us
+                        </button>
+                    </div>
+
+                </section>
+
+                <section class="scroll-mt-24" id="contact">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h2
+                                class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">
+                                Get In Touch
+                            </h2>
+                            <p
+                                class="mt-3 text-lg text-subtext-light dark:text-subtext-dark">
+                                Have questions about WSP, partnerships, or media
+                                inquiries? We'd love to hear from you.
+                            </p>
+
+                            <div class="mt-8 space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <span
+                                        class="material-icons text-primary">email</span>
+                                    <span
+                                        class="text-subtext-light dark:text-subtext-dark">info@ws-pitch.com</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span
+                                        class="material-icons text-primary">phone</span>
+                                    <span
+                                        class="text-subtext-light dark:text-subtext-dark">+81
+                                        03-6280-6885</span>
+                                </div>
+                                <!-- <div class="flex items-center space-x-3">
+                                    <span
+                                        class="material-icons text-primary">location_on</span>
+                                    <span
+                                        class="text-subtext-light dark:text-subtext-dark">Shibuya,
+                                        Tokyo, Japan</span>
+                                </div> -->
+                            </div>
+
+                            <div class="mt-8">
+                                <p
+                                    class="text-sm font-bold text-subtext-light dark:text-subtext-dark mb-3 uppercase tracking-wide">
+                                    Follow Us
+                                </p>
+                                <div class="flex items-center space-x-4 mt-2">
+
+                                    <a
+                                        href="https://www.instagram.com/pitch_koshien"
+                                        target="_blank"
+                                        class="text-subtext-light dark:text-subtext-dark hover:text-primary transition-colors duration-300">
+
+                                        <img
+                                            src="./assets/socials/IG.webp"
+                                            alt="Instagram"
+                                            class="w-8 h-8 invert-0 dark:invert transition-all duration-300" />
+                                    </a>
+
+                                    <a
+                                        href="https://line.me/R/ti/p/@306ccdiy"
+                                        target="_blank"
+                                        class="text-subtext-light dark:text-subtext-dark hover:text-primary transition-colors duration-300">
+
+                                        <img
+                                            src="./assets/socials/LINE.webp"
+                                            alt="LINE"
+                                            class="w-8 h-8 invert-0 dark:invert transition-all duration-300" />
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-subtext-light dark:text-subtext-dark"
+                                    for="name">Full Name</label>
+                                <input
+                                    class="mt-1 block w-full bg-card-light dark:bg-card-dark border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    id="name" name="name" type="text" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-subtext-light dark:text-subtext-dark"
+                                    for="email">Email Address</label>
+                                <input
+                                    class="mt-1 block w-full bg-card-light dark:bg-card-dark border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    id="email" name="email" type="email" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-subtext-light dark:text-subtext-dark"
+                                    for="message">Message</label>
+                                <textarea
+                                    class="mt-1 block w-full bg-card-light dark:bg-card-dark border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    id="message" name="message"
+                                    rows="4"></textarea>
+                            </div>
+                            <button
+                                class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity"
+                                type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            <footer class="bg-card-light dark:bg-card-dark">
+                <div class="container mx-auto px-6 py-8">
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <span
+                                class="text-text-light dark:text-text-dark font-bold text-xl">WSP</span>
+                            <span
+                                class="text-subtext-light dark:text-subtext-dark text-sm">WORLD
+                                STUDENT PITCH</span>
+                        </div>
+                        <div class="flex mt-4 md:mt-0 space-x-6">
+                            <a
+                                class="text-subtext-light dark:text-subtext-dark hover:text-primary"
+                                href="https://www.instagram.com/pitch_koshien">Instagram</a>
+                            <a
+                                class="text-subtext-light dark:text-subtext-dark hover:text-primary"
+                                href="https://line.me/R/ti/p/@306ccdiy">Line</a>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-subtext-light dark:text-subtext-dark text-sm">
+                        <p>© 2025 World Student Pitch. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+
+            <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="./js/contact.js"></script>
+            <script src="./js/gallery.js"></script>
+            <script src="./js/events.js"></script>
+            <script type="module" src="./js/events-render.js"></script>
+            <script defer
+                src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        </body></html>
