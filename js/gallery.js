@@ -67,10 +67,11 @@ function historyCarousel() {
     slides: [
       {
         year: '2022',
-        title: 'Early Stages of WSP',
-        description: `Credo Intl. launched an initiative to energize the wellness industry through youth engagement.
+        title: 'YUME PRO黎明期',
+        description: `Credo Intl.は若者の参加を通じてウェルネス産業を活性化させる事業を開始しました。
 
-The Student Spa Sauna Association established branches offering free tent saunas as part of the Student Startup Lab.`,
+        学生スパサウナ協会は学生スタートアップラボの一環として無料テントサウナを提供する支部を設立しました。
+`,
         layoutType: 'featured', // New layout type
         images: [
           './assets/images/2022/2022-1.png',
@@ -80,10 +81,10 @@ The Student Spa Sauna Association established branches offering free tent saunas
       },
       {
         year: '2023',
-        title: 'YUME PRO Tournament',
-        description: `The first YUME PRO 2023 Student Pitch Koshien was held at the Imperial Hotel.
+        title: '第一回学生ピッチ甲子園',
+        description: `第1回「YUME PRO 2023 学生ピッチ甲子園」は、帝国ホテルにて開催されました。
 
-Five trend-based awards were presented-including the Virtual Entrepreneur Award and the Omotenashi (Hospitality) Entrepreneur Award - as students competed for the Grand Prize.`,
+バーチャル起業家賞やおもてなし起業家賞を含む、トレンドに基づいた5つの賞が設けられ、学生たちはグランプリを目指して競い合いました。`,
         images: [
           './assets/images/2023/2023-1.png',
           './assets/images/2023/2023-2.png',
@@ -92,8 +93,8 @@ Five trend-based awards were presented-including the Virtual Entrepreneur Award 
       },
       {
         year: '2024',
-        title: 'YUME PRO Tournament',
-        description: `The second YUME PRO 2024 Student Pitch Koshien was held at the Imperial Hotel.`,
+        title: '第２回学生ピッチ甲子園',
+        description: `第2回学生ピッチ甲子園が帝国ホテルにて開催されました。`,
         images: [
           './assets/images/2024/2024-1.png',
           './assets/images/2024/2024-2.png',
@@ -102,8 +103,8 @@ Five trend-based awards were presented-including the Virtual Entrepreneur Award 
       },
       {
         year: '2025',
-        title: 'World Student Pitch',
-        description: `Aiming to become the world's top student pitch competition, Preliminary rounds will be held in 15 locations across Asia in 2025 as students compete for over 10M Yen in prizes!`,
+        title: '↑第３回学生ピッチ甲子園',
+        description: `第３回学生ピッチ甲子園はIVS2025会場内ロームシアターで開催`,
         images: [
           './assets/images/2025/2025-1.jpeg',
           './assets/images/2025/2025-2.jpeg',

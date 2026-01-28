@@ -53,10 +53,10 @@ const eventsData = [
     {
         image: "./assets/images/highlights/WSP2026-Icon.png",
         date: "Tokyo, Japan",
-        title: "WSP Global Finals 2026",
-        description: "The world's top student startup teams compete for the grand title. An exciting event of pitching, judging, and networking. Who will take the spot?",
+        title: "学生ピッチ甲子園2026全国大会",
+        description: "世界トップクラスの学生スタートアップチームが優勝をかけて競い合います。ピッチ、審査、ネットワーキングが一体となったエキサイティングなイベント。栄冠を手にするのは誰だ！？",
         register: "",
-        prize: "3,000,000 JPY",
+        prize: "賞金￥10,000,000 ",
 
         judges: [
             { image: "./assets/images/events/WSP2026Finals/Judges/Judge-Sil1.png", name: "", role: "" },
@@ -118,30 +118,30 @@ nextBtn.addEventListener("click", () => {
 const pastEventsData = [
     {
         image: "./assets/images/events/pastEvents/SingaporeWSP.jpeg",
-        date: "April 19, 2025",
-        title: "WSP Singapore",
-        description: "Asia-Europe Foundation (ASEF)",
+        date: "2月21日(土)開催",
+        title: "北陸・東海予選",
+        description: "STATION Ai (名古屋)",
         link: "#"
     },
     {
         image: "./assets/images/events/pastEvents/IndonesiaWSP.jpeg",
-        date: "April 21, 2025",
-        title: "WSP Indonesia",
-        description: "Kijang Function Chamber",
+        date: "3月7日(土)開催",
+        title: "中国・四国予選",
+        description: "イノベーション・ハブ・ひろしま (広島)",
         link: "#"
     },
     {
         image: "./assets/images/events/pastEvents/KoreaWSP.jpeg",
-        date: "May 24, 2025",
-        title: "WSP Korea",
-        description: "Desker Basecamp with Nonce",
+        date: "3月開催",
+        title: "関西予選",
+        description: "近畿大学KINCUBA Basecamp (東大阪)",
         link: "#"
     },
     {
         image: "./assets/images/events/pastEvents/PhilippinesWSP.jpg",
-        date: "August 16, 2025",
-        title: "WSP Philippines",
-        description: "Launchgarage Innovation Hub",
+        date: "3月17日(火)開催",
+        title: "九州予選",
+        description: "GROWTH1 (福岡)",
         link: "https://www.facebook.com/WSPPHL/"
     }
 ];
@@ -169,7 +169,7 @@ const createPastEventCard = (event) => {
         </p>
 
         <a href="${event.link}" class="text-blue-500 hover:text-blue-600 font-semibold inline-flex items-center mt-auto group transition-colors">
-            Learn more 
+            詳細 
             <span class="ml-2 transform group-hover:translate-x-1 transition-transform">-></span>
         </a>
     </div>
