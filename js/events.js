@@ -117,25 +117,25 @@ nextBtn.addEventListener("click", () => {
 // PAST EVENT COMPONENT GENERATOR ------------------------------------------
 const pastEventsData = [
     {
-        image: "./assets/images/events/pastEvents/SingaporeWSP.jpeg",
+        image: "./assets/images/events/pastEvents2/1-jp.jpg",
         date: "2月21日(土)開催",
         title: "北陸・東海予選",
         description: "STATION Ai (名古屋)",
-        link: "#"
+        link: ""
     },
     {
-        image: "./assets/images/events/pastEvents/IndonesiaWSP.jpeg",
+        image: "./assets/images/events/pastEvents2/2-jp.jpg",
         date: "3月7日(土)開催",
         title: "中国・四国予選",
         description: "イノベーション・ハブ・ひろしま (広島)",
-        link: "#"
+        link: ""
     },
     {
-        image: "./assets/images/events/pastEvents/KoreaWSP.jpeg",
+        image: "./assets/images/events/pastEvents2/3-jp.jpg",
         date: "3月開催",
         title: "関西予選",
         description: "近畿大学KINCUBA Basecamp (東大阪)",
-        link: "#"
+        link: ""
     },
     {
         image: "./assets/images/events/pastEvents/PhilippinesWSP.jpg",
@@ -143,7 +143,22 @@ const pastEventsData = [
         title: "九州予選",
         description: "GROWTH1 (福岡)",
         link: "https://www.facebook.com/WSPPHL/"
+    },
+    {
+        image: "./assets/images/events/pastEvents2/4-jp.jpg",
+        date: "3月18日（水）開催",
+        title: "関東予選",
+        description: "Tokyo Innovation Base (東京)",
+        link: ""
+    },
+    {
+        image: "./assets/images/events/pastEvents2/5-jp.jpg",
+        date: "３月２２日（日）開催",
+        title: "北海道・東北予選",
+        description: "enspace (仙台)",
+        link: ""
     }
+
 ];
 
 const createPastEventCard = (event) => {
