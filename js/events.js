@@ -51,7 +51,7 @@ function createEventCard(event) {
 // EVENT DATA
 const eventsData = [
     {
-        image: "./assets/images/highlights/WSP2026-Icon.png",
+        image: "./assets/images/highlights/Right-Highlight.jpg",
         date: "Tokyo, Japan",
         title: "学生ピッチ甲子園2026全国大会",
         description: "世界トップクラスの学生スタートアップチームが優勝をかけて競い合います。ピッチ、審査、ネットワーキングが一体となったエキサイティングなイベント。栄冠を手にするのは誰だ！？",

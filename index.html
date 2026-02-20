@@ -2,9 +2,9 @@
 <html class="dark" lang="en"><head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=0.9" name="viewport" />
-        <title>World Student Pitch</title>
+        <title>学生ピッチ甲子園</title>
         <link rel="icon" type="image/png"
-            href="./assets/images/highlights/WSP_Icon.png">
+            href="./assets/YUME_PRO.svg">
         <script
             src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
         <!-- <link rel="stylesheet" href="styles.css"> -->
@@ -69,18 +69,16 @@
     <!-- UPCOMIMG EVENT CARD COMPONENT TEMPLATE -->
     <template id="eventCardTemplate">
         <div class="event-slide min-w-full 
-                    p-4 sm:p-6 md:p-8 
-                    bg-card-light dark:bg-card-dark 
-                    rounded-xl shadow-custom-light dark:shadow-custom-dark
-                    flex flex-col md:flex-row 
-                    gap-6 sm:gap-8 md:gap-10 items-start">
+                bg-card-light dark:bg-card-dark 
+                rounded-xl shadow-custom-light dark:shadow-custom-dark
+                flex flex-col md:flex-row 
+                overflow-hidden items-stretch">
 
-            <!-- Picture -->
             <img
-                class="event-image w-full md:w-[45%] h-auto rounded-xl object-cover" />
+                class="event-image w-full md:w-[45%] object-cover block"
+                style="min-height: 400px;" />
 
-            <!-- Content -->
-            <div class="flex-1 mt-5">
+            <div class="flex-1 p-6 sm:p-8 md:p-10 flex flex-col justify-center">
 
                 <p class="event-date text-primary font-semibold text-lg"></p>
                 <h4
@@ -88,43 +86,15 @@
                 <p
                     class="event-description text-subtext-light dark:text-subtext-dark mb-6"></p>
 
-                <!-- Prize -->
                 <div class="flex flex-col sm:flex-row gap-4 mt-5">
                     <div
                         class="flex flex-col sm:flex-row prize-container"></div>
 
-                    <!-- CTA Button -->
-                    <!-- <a class="register-link flex-1 sm:flex-none relative z-[2]"
-                        target="_blank" rel="noopener noreferrer">
-                        <button
-                            class="group relative w-full sm:w-auto flex items-center justify-center
-                        bg-primary text-white font-bold py-4 px-11 rounded-xl
-                        shadow-md transition-all duration-300
-                        hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl hover:brightness-110
-                        active:scale-80">
-                            <span>Registration will open soon!</span>
-                            <span
-                                class="material-icons ml-2 transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
-                        </button>
-                    </a>  -->
-
                     <a
                         class="register-link flex-1 sm:flex-none relative z-[2] cursor-not-allowed">
-
-                        <!-- <button
-                            disabled
-                            class="group relative w-full sm:w-auto flex items-center justify-center
-                            bg-primary text-white font-bold py-4 px-11 rounded-xl
-                            shadow-none transition-all duration-300
-                            opacity-50 cursor-not-allowed">
-
-                            <span>Registration will open soon!</span>
-
-                        </button> -->
                     </a>
                 </div>
 
-                <!-- Judges -->
                 <div class="mt-10">
                     <h5
                         class="font-bold text-xl mb-5 text-text-light dark:text-text-dark">Judges</h5>
@@ -132,7 +102,6 @@
                         class="judges-grid grid grid-cols-3 sm:grid-cols-4 gap-2"></div>
                 </div>
 
-                <!-- Sponsors -->
                 <div class="mt-10 mb-5">
                     <h5
                         class="font-bold text-xl mb-5 text-text-light dark:text-text-dark">Sponsors</h5>
@@ -267,14 +236,14 @@
                                 stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2"
                                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span>IVS2026 会場内ロームシアター京都</span>
+                        <span>東京ビッグサイト</span>
                     </div>
                     <div class="flex justify-center items-center gap-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24"><path stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                        <span>2026年7月2日(水)</span>
+                        <span>2026年4月29 日（水</span>
                     </div>
                 </div>
 
@@ -338,14 +307,14 @@
 
                         <p
                             class="mt-6 text-lg text-subtext-light/80 dark:text-subtext-dark/80 leading-relaxed max-w-2xl">
-                            居住地に左右されない平等な選考を行うべく、今年度は全国5ブロックにて予選を挙行いたします。
+                            居住地に左右されない平等な選考を行うべく、今年度は全国6ブロックにて予選を挙行いたします。
                         </p>
                     </div>
 
                     <!-- Right Content: Image Gallery -->
                     <head>
                         <link rel="preload" as="image"
-                            href="./assets/images/highlights/H11.png">
+                            href="./assets/images/highlights/Right-Highlight.jpg">
                     </head>
 
                     <body>
@@ -583,12 +552,12 @@
                 <div class="text-center mb-10">
                     <h2
                         class="text-3xl sm:text-4xl font-bold tracking-tight text-text-light dark:text-text-dark">
-                        ↑学生ピッチ甲子園の魅力（とは）
+                        学生ピッチ甲子園の魅力
                     </h2>
-                    <p
+                    <!-- <p
                         class="mt-4 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">
                         あなたの成長を加速させ、ネットワークを広げ、成功をつかむための特別な機会が得られます
-                    </p>
+                    </p> -->
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-10">
@@ -637,7 +606,7 @@
 
                         <h3
                             class="mt-6 text-2xl font-semibold text-text-light dark:text-text-dark">
-                            専門家による審査
+                            豪華審査員
                         </h3>
 
                         <p
@@ -665,7 +634,7 @@
 
                         <h3
                             class="mt-6 text-2xl font-semibold text-text-light dark:text-text-dark">
-                            資金調達のチャンス
+                            スケールアップのチャンス
                         </h3>
 
                         <p
@@ -707,7 +676,7 @@
 
                             <div class="md:w-3/4 text-gray-200 leading-relaxed">
                                 <ol class="list-none space-y-2">
-                                    <li>1. 2026年7月に開催される全国大会出場時に学生であること。</li>
+                                    <li>1. エントリー時に学生であること。</li>
                                     <li>2. 明確なビジネスプランをプレゼンできること。</li>
                                     <li>3.
                                         地方予選大会は、応募者にゆかりのある都道府県が対象の地方予選大会に応募すること。</li>
@@ -940,7 +909,7 @@
                                     </div>
                                 </div>
 
-                                <div
+                                <!-- <div
                                     class="mt-10 flex flex-col h-full p-8 bg-card-light dark:bg-card-dark rounded-xl shadow-custom-light dark:shadow-custom-dark transition-transform hover:scale-[1.02]">
 
                                     <img
@@ -970,7 +939,7 @@
                                         <span
                                             class="ml-2 transform group-hover:translate-x-1 transition-transform">-></span>
                                     </a>
-                                </div>
+                                </div> -->
 
                                 <!-- ===================== PAST EVENTS GALLERY ===================== -->
                                 <section class="mt-10 mb-10">
@@ -1449,11 +1418,10 @@
                                         class="flex flex-col md:flex-row justify-between items-center">
                                         <div
                                             class="flex items-center space-x-2">
+                                            <!-- <span
+                                                class="text-text-light dark:text-text-dark font-bold text-xl">WSP</span> -->
                                             <span
-                                                class="text-text-light dark:text-text-dark font-bold text-xl">WSP</span>
-                                            <span
-                                                class="text-subtext-light dark:text-subtext-dark text-sm">WORLD
-                                                STUDENT PITCH</span>
+                                                class="text-subtext-light dark:text-subtext-dark text-sm">学生ピッチ甲子園</span>
                                         </div>
                                         <div
                                             class="flex mt-4 md:mt-0 space-x-6">
@@ -1467,8 +1435,7 @@
                                     </div>
                                     <div
                                         class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-subtext-light dark:text-subtext-dark text-sm">
-                                        <p>© 2025 World Student Pitch. All
-                                            rights reserved.</p>
+                                        <p>© 2026 学生ピッチ甲子園.</p>
                                     </div>
                                 </div>
                             </footer>

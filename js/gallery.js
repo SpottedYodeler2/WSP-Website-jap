@@ -1,7 +1,7 @@
 const images = [
-  "./assets/images/highlights/H11.png",
-  "./assets/images/highlights/H22.png",
-  "./assets/images/highlights/H33.png"
+  "./assets/images/highlights/Right-Highlight.jpg",
+  "./assets/images/highlights/Right-Highlight2.jpg",
+  "./assets/images/highlights/Right-Highlight3.jpg"
 ];
 
 let currentIndex = 0;
