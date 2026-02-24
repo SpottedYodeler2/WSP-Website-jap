@@ -1,62 +1,58 @@
 (function () {
-    emailjs.init("YS1d0ihSPWihrh5Ep");
+    // Initializing with your specific Public Key
+    emailjs.init("NiZAfz-sb-X5II_LG");
 })();
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const name = this.querySelector('input[name="name"]').value;
-    const email = this.querySelector('input[name="email"]').value;
-    const message = this.querySelector('textarea[name="message"]').value;
+    // Grab the submit button to show loading state
+    const btn = this.querySelector('button');
+    const originalText = btn.innerText;
 
-    // 1. Validation Error - Replaces the first alert
+    // Basic Validation
+    const name = this.name.value;
+    const email = this.email.value;
+    const message = this.message.value;
+
     if (!name || !email || !message) {
         Swal.fire({
             icon: 'warning',
-            title: 'Missing Fields',
-            text: 'Please fill in all the fields before sending.',
-            confirmButtonColor: '#3085d6' // You can change this color to match your site
+            title: '入力不足',
+            text: 'すべての項目を入力してください。',
+            confirmButtonColor: '#3085d6'
         });
         return;
     }
 
-    const btn = this.querySelector('button');
-    const originalText = btn.innerText;
-
-    btn.innerText = 'Sending...';
+    btn.innerText = '送信中...'; // "Sending..." in Japanese
     btn.disabled = true;
 
     const serviceID = 'service_ae4nfcd';
     const templateID = 'template_gjk4ckl';
 
+    // Sending the form data
     emailjs.sendForm(serviceID, templateID, this)
         .then(() => {
-            // 2. Success Message
             Swal.fire({
                 icon: 'success',
-                title: 'Message Sent!',
-                text: 'We will get back to you as soon as possible.',
+                title: '送信完了!',
+                text: 'お問い合わせありがとうございました。',
                 confirmButtonColor: '#3085d6'
             });
 
-            btn.innerText = 'Message Sent!';
             this.reset();
-
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 3000);
         })
         .catch((err) => {
-            // 3. Network Error Message
+            console.error('EmailJS Error:', err);
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong. Please check your internet connection.',
+                title: 'エラー',
+                text: '送信に失敗しました。通信環境を確認してください。',
             });
-
+        })
+        .finally(() => {
             btn.innerText = originalText;
             btn.disabled = false;
-            console.error('EmailJS Error:', err);
         });
 });

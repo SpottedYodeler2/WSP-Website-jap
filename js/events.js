@@ -66,9 +66,9 @@ const eventsData = [
 
         sponsors: [
             "./assets/images/events/WSP2026Finals/CREDO.png",
-            "./assets/images/events/WSP2026Finals/ANSPA.jpeg",
-            "./assets/images/events/WSP2026Finals/BILLBOARDLIVE.jpeg",
-            "./assets/images/events/WSP2026Finals/SAMU.jpeg",
+            // "./assets/images/events/WSP2026Finals/ANSPA.jpeg",
+            // "./assets/images/events/WSP2026Finals/BILLBOARDLIVE.jpeg",
+            // "./assets/images/events/WSP2026Finals/SAMU.jpeg",
 
         ]
     },

@@ -103,7 +103,7 @@ function historyCarousel() {
       },
       {
         year: '2025',
-        title: '↑第３回学生ピッチ甲子園',
+        title: '第３回学生ピッチ甲子園',
         description: `第３回学生ピッチ甲子園はIVS2025会場内ロームシアターで開催`,
         images: [
           './assets/images/2025/2025-1.jpeg',
