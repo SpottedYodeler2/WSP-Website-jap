@@ -117,22 +117,25 @@ nextBtn.addEventListener("click", () => {
 // PAST EVENT COMPONENT GENERATOR ------------------------------------------
 const pastEventsData = [
     {
-        image: "./assets/images/events/pastEvents2/1-jp.jpg",
+        //Nagoya
+        image: "./assets/images/highlights/2026-3.jpeg",
         date: "12月16日(水)開催",
         title: "名古屋予選",
         description: "SLOW ART CENTER NAGOYA (名古屋)",
         link: "./nagoya.html"
     },
     {
-        image: "./assets/images/events/pastEvents2/5.jpg",
+        //Tokyo
+        image: "./assets/images/highlights/2026-1.jpeg",
         date: "日程未定",
         title: "関東予選",
         description: "会場未定 (東京)",
         link: "./tokyo.html"
     },
     {
-        image: "./assets/images/events/pastEvents2/3.jpg",
-        date: "3月開催予定",
+        //Osaka
+        image: "./assets/images/highlights/2026-2.jpeg",
+        date: "3月2日(火)開催",
         title: "関西予選",
         description: "大阪市中央公会堂 (大阪)",
         link: "./osaka.html"

@@ -1,7 +1,7 @@
 const images = [
-  "./assets/images/highlights/Right-Highlight.jpg",
-  "./assets/images/highlights/Right-Highlight2.jpg",
-  "./assets/images/highlights/Right-Highlight3.jpg"
+  "./assets/images/highlights/2026-1.jpeg",
+  "./assets/images/highlights/2026-2.jpeg",
+  "./assets/images/highlights/2026-3.jpeg"
 ];
 
 let currentIndex = 0;
@@ -11,10 +11,10 @@ const galleryImage = document.getElementById("gallery-image");
 
 // 1. PRELOADER FUNCTION: Downloads all images silently in the background
 function preloadImages() {
-    images.forEach((src) => {
-        const img = new Image();
-        img.src = src;
-    });
+  images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
 }
 
 function showImage(index) {
@@ -66,29 +66,24 @@ function historyCarousel() {
 
     slides: [
       {
-        year: '2022',
-        title: 'YUME PRO黎明期',
-        description: `Credo Intl.は若者の参加を通じてウェルネス産業を活性化させる事業を開始しました。
-
-        学生スパサウナ協会は学生スタートアップラボの一環として無料テントサウナを提供する支部を設立しました。
-`,
-        layoutType: 'featured', // New layout type
+        year: '2026',
+        title: '第４回学生ピッチ甲子園',
+        description: `第４回学生ピッチ甲子園はSusHi Tech Tokyo 2026で開催`,
         images: [
-          './assets/images/2022/2022-1.png',
-          './assets/images/2022/2022-2.png',
-          './assets/images/2022/2022-3.png',
+          './assets/images/highlights/2026-1.jpeg',
+          './assets/images/highlights/2026-2.jpeg',
+          './assets/images/highlights/2026-3.jpeg',
         ]
       },
-      {
-        year: '2023',
-        title: '第一回学生ピッチ甲子園',
-        description: `第1回「YUME PRO 2023 学生ピッチ甲子園」は、帝国ホテルにて開催されました。
 
-バーチャル起業家賞やおもてなし起業家賞を含む、トレンドに基づいた5つの賞が設けられ、学生たちはグランプリを目指して競い合いました。`,
+      {
+        year: '2025',
+        title: '第３回学生ピッチ甲子園',
+        description: `第３回学生ピッチ甲子園はIVS2025会場内ロームシアターで開催`,
         images: [
-          './assets/images/2023/2023-1.png',
-          './assets/images/2023/2023-2.png',
-          './assets/images/2023/2023-3.png',
+          './assets/images/2025/2025-1.jpeg',
+          './assets/images/2025/2025-2.jpeg',
+          './assets/images/2025/2025-3.png',
         ]
       },
       {
@@ -101,17 +96,19 @@ function historyCarousel() {
           './assets/images/2024/2024-4.png',
         ]
       },
+
       {
-        year: '2025',
-        title: '第３回学生ピッチ甲子園',
-        description: `第３回学生ピッチ甲子園はIVS2025会場内ロームシアターで開催`,
+        year: '2023',
+        title: '第一回学生ピッチ甲子園',
+        description: `第1回「YUME PRO 2023 学生ピッチ甲子園」は、帝国ホテルにて開催されました。
+
+バーチャル起業家賞やおもてなし起業家賞を含む、トレンドに基づいた5つの賞が設けられ、学生たちはグランプリを目指して競い合いました。`,
         images: [
-          './assets/images/2025/2025-1.jpeg',
-          './assets/images/2025/2025-2.jpeg',
-          './assets/images/2025/2025-3.png',
+          './assets/images/2023/2023-1.png',
+          './assets/images/2023/2023-2.png',
+          './assets/images/2023/2023-3.png',
         ]
       }
-
     ],
 
     next() {
